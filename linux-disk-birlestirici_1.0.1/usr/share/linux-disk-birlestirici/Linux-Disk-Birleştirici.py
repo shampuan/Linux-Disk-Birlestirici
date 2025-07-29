@@ -13,7 +13,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, QUrl, QSize
 from PyQt5.QtGui import QPainter, QColor, QPen, QIcon, QMovie, QPixmap
-from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
+from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent, QMediaPlaylist
 
 # Renk kodları sözlüğü
 COLOR_SCHEME = {
@@ -250,6 +250,7 @@ class DiskDefragmenterApp(QWidget):
         self.worker = None
         self.check_worker = None
         self.media_player = QMediaPlayer() # Medya oynatıcı objesi
+        self.playlist = QMediaPlaylist() # Playlist objesi
         self.movie = None # QMovie objesi
         self.initUI()
 
@@ -414,7 +415,10 @@ class DiskDefragmenterApp(QWidget):
         music_path = os.path.join(current_dir, 'Open Those Bright Eyes.mp3')
         
         if os.path.exists(music_path):
-            self.media_player.setMedia(QMediaContent(QUrl.fromLocalFile(music_path)))
+            self.playlist.clear()
+            self.playlist.addMedia(QMediaContent(QUrl.fromLocalFile(music_path)))
+            self.playlist.setPlaybackMode(QMediaPlaylist.Loop) # Müziğin sürekli tekrar etmesini sağlar
+            self.media_player.setPlaylist(self.playlist)
             self.media_player.setVolume(50)
             self.media_player.play()
         else:
