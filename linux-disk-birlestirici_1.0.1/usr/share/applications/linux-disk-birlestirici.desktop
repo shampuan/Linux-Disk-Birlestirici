@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Linux Disk Birleştirici
+Comment=Ext4 partisyonları için görsel disk birleştirici
+Exec=/usr/bin/linux-disk-birlestirici
+Icon=fragmenter.png
+Terminal=false
+Type=Application
+Categories=Utility;Filesystem;
+StartupNotify=true
+

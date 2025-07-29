@@ -1,0 +1,3 @@
+#!/bin/bash
+python3 /usr/share/linux-disk-birlestirici/Linux-Disk-Birleştirici.py
+
