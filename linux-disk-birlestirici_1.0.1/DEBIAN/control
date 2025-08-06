@@ -1,8 +1,0 @@
-Package: linux-disk-birlestirici
-Version: 1.0.1
-Section: utils
-Priority: optional
-Architecture: all
-Maintainer: A. Serhat KILICOGLU <github.com/shampuan>
-Description: Ext4 partisyonları için görsel disk birleştirici.
-
